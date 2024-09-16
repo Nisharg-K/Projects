@@ -44,7 +44,7 @@ body {
     margin: 5px;
     border-radius: 5px;
     font-size: 8vmin;
-    font-family: 'Marker Felt', cursive;
+    font-family:'Courier New', Courier, monospace;;
     font-weight: bold;
     display: flex;
     justify-content: center;
