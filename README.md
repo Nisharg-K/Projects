@@ -1,2 +1,4 @@
-# Projects
-Bunch of 1s and 0s I combined while learning how to combine them.
+# Just Vanilla TicTacToe Experience
+
+Purpose: To explore frontend
+
