@@ -35,6 +35,45 @@ document.addEventListener("DOMContentLoaded", () => {
     function closePopup() {
         scorePopup.classList.remove("show");
     }
+    function checkTie() {
+        return [...boxes].every(box => box.innerText !== "");
+    }
+
+    function handleMove() {
+        if (checkTie()) {
+            scoreMessage.innerText = "It's a Tie!";
+            scorePopup.classList.add("show");
+        }
+    }
+
+    boxes.forEach((box) => {
+        box.addEventListener("click", () => {
+            if (box.innerText === "") {
+                if (xturn) {
+                    box.innerText = "X";
+                    xmoves.push(box.id);
+                    if (checkWinner(xmoves)) {
+                        showPopup("Player X");
+                        boxes.forEach(box => box.disabled = true); // Disable all boxes
+                    } else {
+                        handleMove();
+                    }
+                    xturn = false;
+                } else {
+                    box.innerText = "O";
+                    ymoves.push(box.id);
+                    if (checkWinner(ymoves)) {
+                        showPopup("Player O");
+                        boxes.forEach(box => box.disabled = true); // Disable all boxes
+                    } else {
+                        handleMove();
+                    }
+                    xturn = true;
+                }
+                box.disabled = true;
+            }
+        });
+    });
 
     closeBtn.addEventListener("click", closePopup);
 
